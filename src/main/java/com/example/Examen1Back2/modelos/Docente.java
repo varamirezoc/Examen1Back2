@@ -24,7 +24,15 @@ public class Docente {
     @JsonManagedReference(value = "docente-usuario")
     private Usuario usuario;
 
+    public Docente() {
+    }
 
+    public Docente(Integer id, String especialidad, List<Curso> cursos, Usuario usuario) {
+        this.id = id;
+        this.especialidad = especialidad;
+        this.cursos = cursos;
+        this.usuario = usuario;
+    }
 
     public Integer getId() {
         return id;
