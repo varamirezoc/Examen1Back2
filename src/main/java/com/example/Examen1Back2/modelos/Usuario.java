@@ -9,26 +9,28 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Integer id;
 
     @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Column(name = "correo_electronico", unique = true)
+    @Column(name = "correo_electronico", length = 50, unique = true)
     private String correoElectronico;
 
-    @Column(name = "contraseña", unique = true, nullable = false)
+    @Column(name = "contraseña", length = 10, unique = true, nullable = false)
     private String contraseña;
 
     @Column(name = "telefono", unique = true, nullable = false)
     private String telefono;
 
+    @Column(name = "TipoUsuario", nullable = false, unique = false)
     @Enumerated(EnumType.STRING)
     private TipoUsuario tipoUsuario;
 
     //Estableciendo la relacion uno a uno con la tabla docente
     @OneToOne(mappedBy = "usuario")
-    @JsonBackReference(value = "docente-usuario")
+    @JsonBackReference(value = "relaciondocenteusuario")
     private Docente docente;
 
     public Usuario() {

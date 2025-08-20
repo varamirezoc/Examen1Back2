@@ -2,6 +2,7 @@ package com.example.Examen1Back2.modelos;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,16 +13,16 @@ public class Docente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "especialidad", unique = false, nullable = false)
+    @Column(name = "especialidad", length = 100, unique = false, nullable = false)
     private  String especialidad;
 
     @OneToMany(mappedBy = "docente")
-    @JsonManagedReference(value = "docente-curso")
-    private List<Curso> cursos;
+    @JsonManagedReference(value = "relaciondocentecurso")
+    private List<Curso> cursos = new ArrayList<>();
 
     @OneToOne
     @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
-    @JsonManagedReference(value = "docente-usuario")
+    @JsonManagedReference(value = "relaciondocenteusuario")
     private Usuario usuario;
 
     public Docente() {

@@ -10,12 +10,12 @@ public class Curso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombre-curso", unique = false, nullable = false)
+    @Column(name = "nombreCurso", unique = false, nullable = false)
     private String nombre;
 
     @ManyToOne
     @JoinColumn(name="fk_docente", referencedColumnName = "id");
-    @JsonBackReference(value = "docente-curso")
+    @JsonBackReference(value = "relaciondocentecurso")
     private Docente docente;
 
     public Curso() {
