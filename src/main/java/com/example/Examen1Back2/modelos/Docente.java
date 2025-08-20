@@ -4,14 +4,15 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entit
+@Entity
+@Table(name = "docentes")
 public class Docente {
 
-
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
+    @Column(name = "especialidad", unique = false, nullable = false)
     private  String especialidad;
 
     @OneToMany(mappedBy = "docente")

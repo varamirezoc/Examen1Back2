@@ -2,21 +2,24 @@ package com.example.Examen1Back2.modelos;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
-@Entit
+@Entity
 @Table(name = "usuarios")
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.)
-    @Colun(name = "id_usuario")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Colun(name = "correo_electronico", unique = true)
+    @Column(name = "correo_electronico", unique = true)
     private String correoElectronico;
+
+    @Column(name = "contraseña", unique = true, nullable = false)
     private String contraseña;
+
+    @Column(name = "telefono", unique = true, nullable = false)
     private String telefono;
 
     @Enumerated(EnumType.STRING)
