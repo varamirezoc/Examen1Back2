@@ -18,8 +18,8 @@ public class Usuario {
     @Column(name = "correo_electronico", length = 50, unique = true)
     private String correoElectronico;
 
-    @Column(name = "contraseña", length = 10, unique = true, nullable = false)
-    private String contraseña;
+    @Column(name = "contraseña", length = 10, nullable = false)
+    private String contrasena;
 
     @Column(name = "telefono", unique = true, nullable = false)
     private String telefono;
@@ -36,11 +36,11 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombre, String correoElectronico, String contraseña, String telefono, TipoUsuario tipoUsuario) {
+    public Usuario(Integer id, String nombre, String correoElectronico, String contrasena, String telefono, TipoUsuario tipoUsuario) {
         this.id = id;
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.telefono = telefono;
         this.tipoUsuario = tipoUsuario;
     }
@@ -69,12 +69,12 @@ public class Usuario {
         this.correoElectronico = correoElectronico;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getTelefono() {

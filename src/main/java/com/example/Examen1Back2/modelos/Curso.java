@@ -21,9 +21,10 @@ public class Curso {
     public Curso() {
     }
 
-    public Curso(Integer id, String nombre) {
+    public Curso(Integer id, String nombre, Docente docente) {
         this.id = id;
         this.nombre = nombre;
+        this.docente = docente;
     }
 
     public Integer getId() {
